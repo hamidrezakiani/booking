@@ -1,5 +1,10 @@
 <?php
 
+use App\Http\Controllers\Examination\ExaminationController;
+use App\Http\Controllers\FormBuilder\FormController;
+use App\Http\Controllers\FormBuilder\FormGroupController;
+use App\Http\Controllers\FormBuilder\FormGroupFieldController;
+use App\Http\Controllers\FormBuilder\FormGroupFieldOptionController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -17,3 +22,11 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::resource('forms',FormController::class);
+Route::resource('form-groups',FormGroupController::class);
+Route::resource('form-group-fields',FormGroupFieldController::class);
+Route::resource('form-group-field-options',FormGroupFieldOptionController::class);
+
+
+Route::resource('examinations',ExaminationController::class);
